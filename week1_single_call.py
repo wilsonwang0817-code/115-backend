@@ -1,13 +1,17 @@
 """115-backend Week 1：用 Python 送出一次 Chat Completions 呼叫。
 
-執行前先設定環境變數（金鑰不要寫進程式碼）：
-    export NVIDIA_API_KEY=你的金鑰
-    python3 week1_single_call.py
+金鑰不寫進程式碼：在同一個資料夾建立 .env（已列入 .gitignore，不會提交），內容為
+    NVIDIA_API_KEY=你的金鑰
+再執行
+    python week1_single_call.py
 """
 import json
 import os
 
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()  # 讀取 .env，把 NVIDIA_API_KEY 載入成環境變數
 
 API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 MODEL = "minimaxai/minimax-m3.1-flash"
